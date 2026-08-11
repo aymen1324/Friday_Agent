@@ -2,29 +2,32 @@ import json
 import subprocess
 from datetime import datetime
 
-# Current time
-now = datetime.now().strftime("%I:%M %p")
 
-# Get battery information
-battery = subprocess.check_output(["termux-battery-status"])
-battery = json.loads(battery)
+def speak(message):
+    print(f"FRIDAY: {message}")
+    subprocess.run(["termux-tts-speak", message])
 
-percentage = battery["percentage"]
 
-message = (
-    f"Hello Aymen! "
-    f"The time is {now}. "
-    f"Your battery is {percentage} percent."
-)
+while True:
+    command = input("You: ").lower().strip()
 
-print(message)
+    if command == "time":
+        now = datetime.now().strftime("%I:%M %p")
+        speak(f"The time is {now}.")
 
-# Speak
-subprocess.run(["termux-tts-speak", message])
+    elif command == "hello":
+        speak("hello Aymen!! Aymen! what do you wanna chek")
 
-# Notification
-subprocess.run([
-    "termux-notification",
-    "--title", "FRIDAY",
-    "--content", message
-])
+    elif command == "battery":
+        battery = subprocess.check_output(["termux-battery-status"])
+        battery = json.loads(battery)
+
+        percentage = battery["percentage"]
+        speak(f"Your battery is {percentage} percent.")
+
+    elif command == "exit":
+        speak("Goodbye Aymen.")
+        break
+
+    else:
+        speak("I don't understand that command yet.")
