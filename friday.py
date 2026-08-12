@@ -11,20 +11,29 @@ def speak(message):
 while True:
     command = input("You: ").lower().strip()
 
-    if command == "time":
+    if command == "what time is it?":
         now = datetime.now().strftime("%I:%M %p")
         speak(f"The time is {now}.")
 
-    elif command == "battery":
+    elif command == "check my battery":
         battery = subprocess.check_output(["termux-battery-status"])
         battery = json.loads(battery)
 
         percentage = battery["percentage"]
         speak(f"Your battery is {percentage} percent.")
-                                  
+
     elif command == "hello friday":
        speak("Hello Aymen! how can i assist you today")
 
+    elif command == "where am i?":
+       location = subprocess.check_output(["termux-location",
+                                            "-p",
+                                            "network"])
+       location = json.loads(location)
+
+       latitude = location["latitude"]
+       longitude = location["longitude"]
+       speak(f"your latitude is {latitude} and your longitude is {longitude}.or just search it on maps")
 
     elif command == "torch on":
         speak("Turning on the flashlight.")
@@ -34,15 +43,15 @@ while True:
        speak("Turning off the flashlight.")
        subprocess.run(["termux-torch", "off"])
 
-    elif command == "toast":
+    elif command == "tell me a joke":
        subprocess.run([
         "termux-toast",
-        "Hello Aymen! FRIDAY is alive!"
+        "Hey Aymen! we are gonna blow the ai world man 💣💣"
        ])
 
     elif command == "exit":
-        speak("Goodbye Aymen.")
+        speak("Goodbye Aymen. see you next 😁")
         break
 
     else:
-        speak("I don't understand that command yet.")
+        speak("sorry but i didn't learn this yet ok. iam still young for that 😁.")
