@@ -2,11 +2,25 @@ import json
 import subprocess
 from datetime import datetime
 
+def load_memory():
+    with open("memory.json", "r") as file:
+        return json.load(file)
+
+def save_memory(memory):
+    with open("memory.json", "w") as file:
+        json.dump(memory, file, indent=4)
 
 def speak(message):
     print(f"FRIDAY: {message}")
     subprocess.run(["termux-tts-speak", message])
+memory = load_memory()
 
+memory["name"] = "Aymen"
+
+save_memory(memory)
+
+memory = load_memory()
+print(memory)
 
 while True:
     command = input("You: ").lower().strip()
@@ -14,6 +28,10 @@ while True:
     if command == "what time is it?":
         now = datetime.now().strftime("%I:%M %p")
         speak(f"The time is {now}.")
+
+    elif command == "what is my name?":
+         memory = load_memory()
+         speak(f"Your name is {memory['name']}.")
 
     elif command == "check my battery":
         battery = subprocess.check_output(["termux-battery-status"])
