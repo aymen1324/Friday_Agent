@@ -3,8 +3,11 @@ import subprocess
 from datetime import datetime
 
 def load_memory():
-    with open("memory.json", "r") as file:
-        return json.load(file)
+    try:
+        with open("memory.json", "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
 
 def save_memory(memory):
     with open("memory.json", "w") as file:
@@ -13,14 +16,8 @@ def save_memory(memory):
 def speak(message):
     print(f"FRIDAY: {message}")
     subprocess.run(["termux-tts-speak", message])
-memory = load_memory()
-
-memory["name"] = "Aymen"
-
-save_memory(memory)
 
 memory = load_memory()
-print(memory)
 
 while True:
     command = input("You: ").lower().strip()
