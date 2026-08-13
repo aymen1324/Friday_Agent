@@ -33,8 +33,10 @@ while True:
         if " is " in memory_text:
             key, value = memory_text.split(" is ", 1)
             key = key.strip().lower()
-            value = value.strip()
 
+            if key.startswith("my "):
+              key = key[3:]
+            value = value.strip()
             memory[key] = value
             save_memory(memory)
             speak("I'll remember that.")
@@ -42,12 +44,12 @@ while True:
             speak("Tell me what you want me to remember.")
 
     elif command.startswith("what is my "):
-        key = "my " + command[11:].strip()
+      key = command[11:].strip()
 
-        if key in memory:
-            speak(f"{key} is {memory[key]}.")
-        else:
-            speak(f"I don't remember your {key} yet.")
+      if key in memory:
+          speak(f"Your {key} is {memory[key]}.")
+      else:
+          speak(f"I don't remember your {key} yet.")
 
     elif command == "check my battery":
         # Decode bytes output to string for secure json parsing
