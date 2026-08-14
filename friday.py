@@ -19,6 +19,11 @@ def speak(message):
 
 memory = load_memory()
 
+subprocess.run([
+   "termux-notification",
+   "--content", "Welcome To friday"
+])
+
 speak("Welcome To friday")
 
 while True:
@@ -44,6 +49,14 @@ while True:
             speak("I'll remember that.")
         else:
             speak("Tell me what you want me to remember.")
+
+    elif command == "what do you remember":
+     if not memory:
+         speak(" I don't remember anything yet.")
+     else:
+         speak(" Here's what I remember:")
+         for key, value in memory.items():
+            print(f"- {key}: {value}")
 
     elif command.startswith("what is my "):
       key = command[11:].strip()
