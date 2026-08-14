@@ -116,5 +116,5 @@ while True:
       break
 
     else:
-        speak("sorry but i didn't learn this yet. ok!. iam still young for that 😁.")
+        speak("sorry but i didn't learn this yet. ok! 😁.")
 
