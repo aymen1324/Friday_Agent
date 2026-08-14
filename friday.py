@@ -19,6 +19,8 @@ def speak(message):
 
 memory = load_memory()
 
+speak("Welcome To friday")
+
 while True:
     user_input = input("You: ").strip()
     command = user_input.lower()
@@ -78,6 +80,16 @@ while True:
     elif command == "torch off":
         speak("Turning off the flashlight.")
         subprocess.run(["termux-torch", "off"])
+
+    elif command.startswith("forget "):
+      key = command.replace("forget my ", "").strip()
+
+      if key in memory:
+         del memory[key]
+         save_memory(memory)
+         speak(f"Okay, I forgot your {key}.")
+      else:
+         speak(f"I don't remember your {key}.")
 
     elif command == "tell me a joke":
         subprocess.run([
