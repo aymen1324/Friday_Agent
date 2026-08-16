@@ -17,6 +17,19 @@ def speak(message):
     print(f"FRIDAY: {message}")
     subprocess.run(["termux-tts-speak", message])
 
+def open_url(url):
+    subprocess.run(["termux-open", url])
+
+def open_app(activity):
+    subprocess.run(["am", "start", "-n", activity])
+
+WEBSITES = {
+    "youtube": "https://youtube.com",
+    "google": "https://google.com",
+    "github": "https://github.com",
+    "stackoverflow": "https://stackoverflow.com",
+}
+
 memory = load_memory()
 
 subprocess.run([
@@ -65,6 +78,15 @@ while True:
           speak(f"Your {key} is {memory[key]}.")
       else:
           speak(f"I don't remember your {key} yet.")
+
+    elif command.startswith("open "):
+       site = command.replace("open ", "").strip()
+
+       if site in WEBSITES:
+          print(f"FRIDAY: Opening {site.title()}...")
+          open_url(WEBSITES[site])
+       else:
+          print(f"FRIDAY: Sorry, I don't know how to open '{site}' yet.")
 
     elif command == "check my battery":
         # Decode bytes output to string for secure json parsing
