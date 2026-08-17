@@ -4,13 +4,13 @@ from datetime import datetime
 
 def load_memory():
     try:
-        with open("memory.json", "r") as file:
+        with open("data/memory.json", "r") as file:
             return json.load(file)
     except FileNotFoundError:
         return {}
 
 def save_memory(memory):
-    with open("memory.json", "w") as file:
+    with open("data/memory.json", "w") as file:
         json.dump(memory, file, indent=4)
 
 def speak(message):
@@ -23,14 +23,17 @@ def open_url(url):
 def open_app(activity):
     subprocess.run(["am", "start", "-n", activity])
 
-WEBSITES = {
-    "youtube": "https://youtube.com",
-    "google": "https://google.com",
-    "github": "https://github.com",
-    "stackoverflow": "https://stackoverflow.com",
-}
+def load_websites():
+    with open("data/websites.json", "r") as file:
+        return json.load(file)
+
+def save_websites(websites):
+    with open("data/websites.json", "w") as file:
+        json.dump(websites, file, indent=4)
 
 memory = load_memory()
+
+websites = load_websites()
 
 subprocess.run([
    "termux-notification",
@@ -82,11 +85,49 @@ while True:
     elif command.startswith("open "):
        site = command.replace("open ", "").strip()
 
-       if site in WEBSITES:
-          print(f"FRIDAY: Opening {site.title()}...")
-          open_url(WEBSITES[site])
-       else:
-          print(f"FRIDAY: Sorry, I don't know how to open '{site}' yet.")
+       found = False
+
+       for website in websites:
+        if website["id"] == site:
+          print(f"FRIDAY: Opening {website['name']}...")
+          open_url(website["url"])
+          found = True
+          break
+
+       if not found:
+           print(f"FRIDAY: Sorry, I don't know how to open '{site}' yet.")
+
+    elif command.startswith("add website "):
+     parts = command.split()
+
+     if len(parts) < 4:
+        print("FRIDAY: Usage: add website <id> <url>")
+     else:
+        # Added [2] and [3] here to grab the specific parts
+        website_id = parts[2]
+        url = parts[3]
+        
+        exists = False
+
+        for website in websites:
+          if website["id"] == website_id:
+           exists = True
+           break
+
+        new_website = {
+            "id": website_id,
+           "name": website_id.title(),
+           "url": url,
+           "category": "Custom"
+       }
+
+        if exists:
+         print(f"FRIDAY: I already know {website_id.title()}.")
+        else:
+         websites.append(new_website)
+         save_websites(websites)
+         
+         print(f"FRIDAY: Added {website_id.title()}!")
 
     elif command == "check my battery":
         # Decode bytes output to string for secure json parsing
