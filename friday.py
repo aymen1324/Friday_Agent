@@ -30,10 +30,16 @@ def load_websites():
 def save_websites(websites):
     with open("data/websites.json", "w") as file:
         json.dump(websites, file, indent=4)
-
+        
+def load_apps():
+    with open("data/apps.json", "r") as file:
+        return json.load(file)
+        
 memory = load_memory()
 
 websites = load_websites()
+
+apps = load_apps()
 
 subprocess.run([
    "termux-notification",
@@ -81,9 +87,9 @@ while True:
           speak(f"Your {key} is {memory[key]}.")
       else:
           speak(f"I don't remember your {key} yet.")
-
-    elif command.startswith("open "):
-       site = command.replace("open ", "").strip()
+          
+    elif command.startswith("open ") and command.endswith(" website"):
+       site = command.replace("open ", "").replace(" website", "").strip()
 
        found = False
 
@@ -128,7 +134,22 @@ while True:
          save_websites(websites)
          
          print(f"FRIDAY: Added {website_id.title()}!")
+         
+    elif command.startswith("open"): 
+       app = command.replace("open ", "").strip()
 
+       found = False
+
+       for application in apps:
+         if application["id"] == app:
+           print(f"FRIDAY: Launching {application['name']}...")
+           open_app(application["package"])
+           found = True
+           break
+
+       if not found:
+            print(f"FRIDAY: Sorry, I don't know how to open '{app}' yet.")
+           
     elif command == "check my battery":
         # Decode bytes output to string for secure json parsing
         battery_data = subprocess.check_output(["termux-battery-status"]).decode('utf-8')

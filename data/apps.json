@@ -1,0 +1,396 @@
+
+
+[
+    {
+        "id": "lark_player",
+        "name": "Lark Player",
+        "package": "com.dywx.larkplayer",
+        "category": "Media"
+    },
+    {
+        "id": "medium",
+        "name": "Medium",
+        "package": "com.medium.reader",
+        "category": "Information"
+    },
+    {
+        "id": "bitget",
+        "name": "Bitget",
+        "package": "com.bitget.exchange",
+        "category": "Finance"
+    },
+    {
+        "id": "snaptube",
+        "name": "SnapTube",
+        "package": "com.snaptube.premium",
+        "category": "Media"
+    },
+    {
+        "id": "samsung_internet",
+        "name": "Samsung Internet",
+        "package": "com.sec.android.app.sbrowser",
+        "category": "Utilities"
+    },
+    {
+        "id": "aliexpress",
+        "name": "AliExpress",
+        "package": "com.alibaba.aliexpresshd",
+        "category": "Shopping"
+    },
+    {
+        "id": "youtube_music",
+        "name": "YouTube Music",
+        "package": "com.google.android.apps.youtube.music",
+        "category": "Media"
+    },
+    {
+        "id": "termux_toolbox",
+        "name": "Termux Toolbox Tutorial",
+        "package": "coded.toolbox.termuxtutorial",
+        "category": "Education"
+    },
+    {
+        "id": "perplexity",
+        "name": "Perplexity AI",
+        "package": "ai.perplexity.app.android",
+        "category": "Productivity"
+    },
+    {
+        "id": "http_injector",
+        "name": "HTTP Injector",
+        "package": "com.evozi.injector",
+        "category": "Utilities"
+    },
+    {
+        "id": "samsung_notes_addons",
+        "name": "Samsung Notes Add-ons",
+        "package": "com.samsung.android.app.notes.addons",
+        "category": "Productivity"
+    },
+    {
+        "id": "docker_guide",
+        "name": "Docker Mobile",
+        "package": "com.pavit.docker",
+        "category": "Development"
+    },
+    {
+        "id": "reddit",
+        "name": "Reddit",
+        "package": "com.reddit.frontpage",
+        "category": "Social"
+    },
+    {
+        "id": "acode",
+        "name": "Acode Editor",
+        "package": "com.foxdebug.acodefree",
+        "category": "Development"
+    },
+    {
+        "id": "dr_driving",
+        "name": "Dr. Driving",
+        "package": "com.ansangha.drdriving",
+        "category": "Games"
+    },
+    {
+        "id": "cxxdroid",
+        "name": "Cxxdroid",
+        "package": "ru.iiec.cxxdroid",
+        "category": "Development"
+    },
+    {
+        "id": "kalimatul_quran",
+        "name": "Kalimatul Quran",
+        "package": "com.quran.tafsir.tafseer.tafser.kalimatul_quran_23",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "almaany_dictionary",
+        "name": "Almaany Dictionary",
+        "package": "com.almaany.arar",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "github",
+        "name": "GitHub",
+        "package": "com.github.android",
+        "category": "Development"
+    },
+    {
+        "id": "cctip",
+        "name": "CCTIP",
+        "package": "com.blockabc.cctip",
+        "category": "Finance"
+    },
+    {
+        "id": "quran_tafseer_offline",
+        "name": "Quran Tafseer Offline",
+        "package": "com.simppro.quran.tafseer.offline",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "wps_office",
+        "name": "WPS Office",
+        "package": "cn.wps.moffice_eng",
+        "category": "Productivity"
+    },
+    {
+        "id": "linkedin",
+        "name": "LinkedIn",
+        "package": "com.linkedin.android",
+        "category": "Social"
+    },
+    {
+        "id": "hijri_calendar",
+        "name": "Hijri Calendar",
+        "package": "com.ibrahim.hijricalendar",
+        "category": "Utilities"
+    },
+    {
+        "id": "bombsquad",
+        "name": "BombSquad",
+        "package": "net.froemling.bombsquad",
+        "category": "Games"
+    },
+    {
+        "id": "chatgpt",
+        "name": "ChatGPT",
+        "package": "com.openai.chatgpt",
+        "category": "Productivity"
+    },
+    {
+        "id": "trebedit",
+        "name": "TrebEdit",
+        "package": "com.teejay.trebedit",
+        "category": "Development"
+    },
+    {
+        "id": "internet_speed_meter",
+        "name": "Internet Speed Meter Lite",
+        "package": "com.internet.speed.meter.lite",
+        "category": "Utilities"
+    },
+    {
+        "id": "google_tv",
+        "name": "Google TV / Movies",
+        "package": "com.google.android.videos",
+        "category": "Media"
+    },
+    {
+        "id": "voice_recorder",
+        "name": "Samsung Voice Recorder",
+        "package": "com.sec.android.app.voicenote",
+        "category": "Utilities"
+    },
+    {
+        "id": "gemini",
+        "name": "Google Gemini",
+        "package": "com.google.android.apps.bard",
+        "category": "Productivity"
+    },
+    {
+        "id": "malek_books",
+        "name": "Malek Books",
+        "package": "com.zikols.malek.books.rules.app1690973193038",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "google_calendar",
+        "name": "Google Calendar",
+        "package": "com.google.android.calendar",
+        "category": "Utilities"
+    },
+    {
+        "id": "wasitia_book",
+        "name": "Al-Wasitia Book",
+        "package": "com.obooks.wasitia",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "termux",
+        "name": "Termux",
+        "package": "com.termux",
+        "category": "Development"
+    },
+    {
+        "id": "sololearn",
+        "name": "Sololearn",
+        "package": "com.sololearn",
+        "category": "Education"
+    },
+    {
+        "id": "x_twitter",
+        "name": "X / Twitter",
+        "package": "com.twitter.android",
+        "category": "Social"
+    },
+    {
+        "id": "ethiopay",
+        "name": "EthioPay",
+        "package": "cn.tydic.ethiopay",
+        "category": "Finance"
+    },
+    {
+        "id": "play_games",
+        "name": "Google Play Games",
+        "package": "com.google.android.play.games",
+        "category": "Games"
+    },
+    {
+        "id": "galaxy_wearable",
+        "name": "Galaxy Wearable",
+        "package": "com.samsung.android.app.watchmanager",
+        "category": "Utilities"
+    },
+    {
+        "id": "bd_vpn",
+        "name": "BD Free VPN",
+        "package": "dastan.prince.bdfreevpn",
+        "category": "Utilities"
+    },
+    {
+        "id": "replit",
+        "name": "Replit",
+        "package": "com.replit.app",
+        "category": "Development"
+    },
+    {
+        "id": "noorania",
+        "name": "Qaida Noorania",
+        "package": "com.zoomat.noorania",
+        "category": "Education"
+    },
+    {
+        "id": "bitkeep",
+        "name": "Bitget Wallet / BitKeep",
+        "package": "com.bitkeep.wallet",
+        "category": "Finance"
+    },
+    {
+        "id": "kids_home",
+        "name": "Samsung Kids Home",
+        "package": "com.sec.android.app.kidshome",
+        "category": "Education"
+    },
+    {
+        "id": "unblock_vpn",
+        "name": "Unlimited Unblock VPN",
+        "package": "com.unlimited.unblock.free.accelerator.top",
+        "category": "Utilities"
+    },
+    {
+        "id": "outlook",
+        "name": "Microsoft Outlook",
+        "package": "com.microsoft.office.outlook",
+        "category": "Communication"
+    },
+    {
+        "id": "auto_athkar",
+        "name": "Auto Athkar",
+        "package": "ammanify.apps.auto_athkar",
+        "category": "Books & Reference"
+    },
+    {
+        "id": "andromo_app",
+        "name": "Andromo Dev App",
+        "package": "com.andromo.dev540689.app529249",
+        "category": "Utilities"
+    },
+    {
+        "id": "temple_run_2",
+        "name": "Temple Run 2",
+        "package": "com.imangi.templerun2",
+        "category": "Games"
+    },
+    {
+        "id": "yandex_toloka",
+        "name": "Yandex Toloka",
+        "package": "com.yandex.toloka.androidapp",
+        "category": "Productivity"
+    },
+    {
+        "id": "s_health",
+        "name": "Samsung Health",
+        "package": "com.sec.android.app.shealth",
+        "category": "Utilities"
+    },
+    {
+        "id": "calculator",
+        "name": "Samsung Calculator",
+        "package": "com.sec.android.app.popupcalculator",
+        "category": "Utilities"
+    },
+    {
+        "id": "google_docs",
+        "name": "Google Docs",
+        "package": "com.google.android.apps.docs",
+        "category": "Productivity"
+    },
+    {
+        "id": "tls_tunnel",
+        "name": "TLS Tunnel VPN",
+        "package": "com.tlsvpn.tlstunnel",
+        "category": "Utilities"
+    },
+    {
+        "id": "google_contacts",
+        "name": "Google Contacts Sync",
+        "package": "com.google.android.contactkeys",
+        "category": "Utilities"
+    },
+    {
+        "id": "claude",
+        "name": "Claude AI",
+        "package": "com.anthropic.claude",
+        "category": "Productivity"
+    },
+    {
+        "id": "tx_app",
+        "name": "TX App",
+        "package": "org.tx.app",
+        "category": "Utilities"
+    },
+    {
+        "id": "samsung_sans",
+        "name": "Samsung Sans Font",
+        "package": "com.monotype.android.font.samsungsans",
+        "category": "Utilities"
+    },
+    {
+        "id": "link_to_windows",
+        "name": "Link to Windows",
+        "package": "com.microsoft.appmanager",
+        "category": "Utilities"
+    },
+    {
+        "id": "level_devil",
+        "name": "Level Devil",
+        "package": "com.unept.leveldevil",
+        "category": "Games"
+    },
+    {
+        "id": "grade_calculator",
+        "name": "Grade Calculator",
+        "package": "com.jezari.grade_calculator",
+        "category": "Education"
+    },
+    {
+        "id": "naukrigulf",
+        "name": "Naukrigulf Jobs",
+        "package": "com.naukriGulf.app",
+        "category": "Productivity"
+    },
+    {
+        "id": "leyu_mobile",
+        "name": "Leyu Mobile",
+        "package": "ai.leyu.leyu_mobile",
+        "category": "Utilities"
+    },
+    {
+        "id": "ali_assistant",
+        "name": "Ali Assistant",
+        "package": "com.xyz.aliassistant",
+
+        "category": "Shopping"
+       }
+]
+
