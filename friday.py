@@ -4,9 +4,7 @@ from datetime import datetime
 
 from modules.memory import load_memory, save_memory
 
-def speak(message):
-    print(f"FRIDAY: {message}")
-    subprocess.run(["termux-tts-speak", message])
+from modules.speech import speak
 
 def open_url(url):
     subprocess.run(["termux-open", url])
