@@ -190,5 +190,11 @@
         "name": "Usnplash",
         "url": "https://unsplash.com",
         "category": "Custom"
+    },
+    {
+        "id": "cn",
+        "name": "Cn",
+        "url": "https://www.cartoonnetwork.ca/",
+        "category": "Custom"
     }
 ]

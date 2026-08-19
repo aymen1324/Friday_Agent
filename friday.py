@@ -6,24 +6,22 @@ from modules.memory import load_memory, save_memory
 
 from modules.speech import speak
 
-def open_url(url):
-    subprocess.run(["termux-open", url])
+from modules.launcher import (
+    open_url,
+    open_app,
+    load_websites,
+    save_websites,
+    load_apps,
+)
 
-def open_app(activity):
-    subprocess.run(["am", "start", "-n", activity])
+from modules.device import get_location
 
-def load_websites():
-    with open("data/websites.json", "r") as file:
-        return json.load(file)
+from modules.device import get_battery
 
-def save_websites(websites):
-    with open("data/websites.json", "w") as file:
-        json.dump(websites, file, indent=4)
-        
-def load_apps():
-    with open("data/apps.json", "r") as file:
-        return json.load(file)
-        
+from modules.device import torch_on, torch_off, show_toast, get_current_time
+
+from modules.device import get_location
+
 memory = load_memory()
 
 websites = load_websites()
@@ -41,8 +39,12 @@ while True:
     user_input = input("You: ").strip()
     command = user_input.lower()
 
-    if command == "what time is it?":
-        now = datetime.now().strftime("%I:%M %p")
+    if command == "hello friday":
+        name = memory.get("name", "friend")
+        speak(f"Hello {name}. how can i assist you today!")
+    
+    elif command == "what time is it?":
+        now = get_current_time()
         speak(f"The time is {now}.")
 
     elif command.startswith("remember "):
@@ -77,6 +79,16 @@ while True:
       else:
           speak(f"I don't remember your {key} yet.")
           
+    elif command.startswith("forget "):
+      key = command.replace("forget my ", "").strip()
+
+      if key in memory:
+         del memory[key]
+         save_memory(memory)
+         speak(f"Okay, I forgot your {key}.")
+      else:
+         speak(f"I don't remember your {key}.")
+
     elif command.startswith("open ") and command.endswith(" website"):
        site = command.replace("open ", "").replace(" website", "").strip()
 
@@ -140,48 +152,27 @@ while True:
             print(f"FRIDAY: Sorry, I don't know how to open '{app}' yet.")
            
     elif command == "check my battery":
-        # Decode bytes output to string for secure json parsing
-        battery_data = subprocess.check_output(["termux-battery-status"]).decode('utf-8')
-        battery = json.loads(battery_data)
-        percentage = battery["percentage"]
-        speak(f"Your battery is {percentage} percent.")
+       percentage = get_battery()
+       speak(f"Your battery is {percentage} percent.")
 
-    elif command == "hello friday":
-        name = memory.get("name", "friend")
-        speak(f"Hello {name}. how can i assist you today!")
 
     elif command == "where am i?":
-        # Decode bytes output to string for secure json parsing
-        location_data = subprocess.check_output(["termux-location", "-p", "network"]).decode('utf-8')
-        location = json.loads(location_data)
+        speak("Locating you now...")
+        lat, lng = get_location()
 
-        latitude = location["latitude"]
-        longitude = location["longitude"]
-        speak(f"your latitude is {latitude} and your longitude is {longitude}. or just search it on maps")
+        if lat and lng:
+            speak(f"Your latitude is {lat} and your longitude is {lng}.")
+        else:
+            speak("I couldn't retrieve your location. Please make sure GPS and location permissions are turned on.")
 
     elif command == "torch on":
-        speak("Turning on the flashlight.")
-        subprocess.run(["termux-torch", "on"])
+        torch_on(speak)
 
     elif command == "torch off":
-        speak("Turning off the flashlight.")
-        subprocess.run(["termux-torch", "off"])
-
-    elif command.startswith("forget "):
-      key = command.replace("forget my ", "").strip()
-
-      if key in memory:
-         del memory[key]
-         save_memory(memory)
-         speak(f"Okay, I forgot your {key}.")
-      else:
-         speak(f"I don't remember your {key}.")
+        torch_off(speak)
 
     elif command == "tell me a joke":
-        subprocess.run([
-            "termux-toast",
-            "Hey Aymen! we are gonna blow the ai world man 💣💣"
-        ])
+        show_toast("Hey Aymen! we are gonna blow the ai world man 💣💣")
 
     elif command == "exit":
       name = memory.get("name", "friend")
