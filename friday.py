@@ -22,6 +22,17 @@ from modules.device import torch_on, torch_off, show_toast, get_current_time
 
 from modules.device import get_location
 
+from modules.voice import listen
+
+##command = listen()
+#£print(command)
+
+def process_command(command):
+    command = command.lower().strip()
+  
+    print("PROCESS:", command)
+    # all your elif battery, time, open, remember, etc.
+
 memory = load_memory()
 
 websites = load_websites()
@@ -36,19 +47,19 @@ subprocess.run([
 speak("Welcome To friday")
 
 while True:
-    user_input = input("You: ").strip()
-    command = user_input.lower()
+    command = input("You: ")
+    process_command(command)
 
     if command == "hello friday":
         name = memory.get("name", "friend")
         speak(f"Hello {name}. how can i assist you today!")
-    
+
     elif command == "what time is it?":
         now = get_current_time()
         speak(f"The time is {now}.")
 
     elif command.startswith("remember "):
-        memory_text = user_input[9:].strip()
+        memory_text = command[9:].strip()
 
         if " is " in memory_text:
             key, value = memory_text.split(" is ", 1)
@@ -88,7 +99,25 @@ while True:
          speak(f"Okay, I forgot your {key}.")
       else:
          speak(f"I don't remember your {key}.")
+         
+    elif command == "voice":
+      print("🎤 Voice mode enabled.")
 
+      while True:
+           spoken = listen()
+
+           if not spoken:
+              print("🤔 Sorry, I didn't catch that.")
+              continue
+
+           print("DEBUG:", repr(spoken))   # <-- Debug first
+
+           if spoken.lower().strip() in ["stop voice", "exit voice"]:
+              print("🎤 Voice mode disabled.")
+              break
+
+           process_command(spoken)
+         
     elif command.startswith("open ") and command.endswith(" website"):
        site = command.replace("open ", "").replace(" website", "").strip()
 

@@ -196,5 +196,11 @@
         "name": "Cn",
         "url": "https://www.cartoonnetwork.ca/",
         "category": "Custom"
+    },
+    {
+        "id": "mawmaw",
+        "name": "Mawmaw",
+        "url": "http//mawmaw.com",
+        "category": "Custom"
     }
 ]
