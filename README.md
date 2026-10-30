@@ -1,3 +1,23 @@
+# Friday Agent
+
+A modular AI assistant written in Python.
+
+## Features
+
+- Memory system
+- Voice input
+- Device controls
+- Website launcher
+- Modular architecture
+
+## Future Goals
+
+- LLM integration
+- Tool calling
+- Automation
+- RAG
+- Desktop support 
+
 📱 Built on Android
 
 One of the unique aspects of this project is that it was primarily developed on an Android phone using Termux.
